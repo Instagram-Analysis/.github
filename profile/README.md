@@ -1,88 +1,213 @@
-# Instagram Analytics
+# 📊 Instagram Analytics
 
-Welcome to the **Instagram Analytics** project—a full‑stack application for analyzing Instagram follower and engagement data. This repository serves as the organizational hub and provides an overview, setup instructions, and architecture for both the Frontend and Backend components.
+> A comprehensive full-stack application for advanced Instagram follower and engagement analysis with real-time insights and secure OAuth integration.
 
-## Repositories
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://typescriptlang.org/)
 
-- **Frontend**: [instagram-analytics-FE](https://github.com/Instagram-Analysis/instagram-analytics-FE)  
-  A Next.js + TypeScript application that provides the user interface to view followers, following, non-followers, and top likers.
 
-- **Backend**: [instagram-analytics-BE](https://github.com/Instagram-Analysis/instagram-analytics-BE)  
-  An Express.js + TypeScript API server that handles authentication, session management, and fetches Instagram data via an API integration.
+## 🚀 Overview
 
-## Architecture
+Instagram Analytics is a modern, secure platform that provides deep insights into your Instagram account performance. Built with enterprise-grade architecture, it offers real-time analysis of follower dynamics, engagement patterns, and audience behavior through Instagram's official Graph API.
 
+
+### ✨ Key Features
+
+- **Follower Analysis** - Track followers, following, and identify non-mutual connections
+- **Engagement Insights** - Analyze top likers and interaction patterns
+- **Secure Authentication** - OAuth 2.0 integration with Instagram's official API
+- **Real-time Data** - Live synchronization with Instagram platform
+- **Modern UI/UX** - Responsive design with intuitive dashboard
+
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    A[Next.js Frontend] -->|HTTPS + Session Auth| B[Express.js Backend]
+    B -->|OAuth 2.0| C[Instagram Graph API]
+    C -->|JSON Response| B
+    B -->|Processed Data| A
+    
+    style A fill:#ff5733
+    style B fill:#d6ff33
+    style C fill:#33f2ff
 ```
-Browser (Next.js FE)
-    ↕  HTTPS (credentials included)
-Express.js + TypeScript BE
-    ↕  Instagram Graph API (OAuth & Access Token)
-Instagram Platform
-```
 
-- The **Frontend** communicates with the Backend over HTTP, including user sessions.  
-- The **Backend** will use the **Official Instagram Graph API** (OAuth flow) to securely obtain data.  
+**Technology Stack:**
+- **Frontend**: Next.js 14+ with TypeScript, CSS
+- **Backend**: Express.js with TypeScript, secure session management
+- **API Integration**: Instagram Graph API with long-lived access tokens
+- **Authentication**: OAuth 2.0 flow with Instagram Platform
 
-## Setup
+## 📦 Repository Structure
+
+| Repository | Description | Tech Stack |
+|------------|-------------|------------|
+| [**Frontend**](https://github.com/Instagram-Analysis/instagram-analytics-FE) | User interface and dashboard | Next.js + TypeScript |
+| [**Backend**](https://github.com/Instagram-Analysis/instagram-analytics-BE) | API server and Instagram integration | Express.js + TypeScript |
+
+## 🛠️ Quick Start
 
 ### Prerequisites
 
-- Node.js ≥ 14
-- npm ≥ 6
+Ensure you have the following installed:
+- **Node.js** `>=14.0.0` ([Download](https://nodejs.org/))
+- **npm** `>=6.0.0` or **yarn** `>=1.22.0`
+- **Git** for version control
 
-### Frontend
+### 🎨 Frontend Setup
 
-1. Clone and install:
-   ```bash
-   git clone https://github.com/Instagram-Analysis/instagram-analytics-FE.git
-   cd instagram-analytics-FE
-   npm install
-   ```
-2. Create `.env.local`:
-   ```dotenv
-   NEXT_PUBLIC_API_URL=http://localhost:4000
-   ```
-3. Start:
-   ```bash
-   npm run dev
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/Instagram-Analysis/instagram-analytics-FE.git
+cd instagram-analytics-FE
 
-### Backend
+# Install dependencies
+npm install
 
-1. Clone and install:
-   ```bash
-   git clone https://github.com/Instagram-Analysis/instagram-analytics-BE.git
-   cd instagram-analytics-BE
-   npm install
-   ```
-2. Create `.env`:
-   ```dotenv
-   PORT=4000
-   FRONTEND_URL=http://localhost:3000
-   SESSION_SECRET=<your-session-secret>
-   INSTAGRAM_GRAPH_TOKEN=<your-long-lived-graph-token>
-   ```
-3. Start:
-   ```bash
-   npm run dev
-   ```
+# Configure environment
+cp .env.example .env.local
+```
 
-## Instagram API Integration
+**Environment Configuration (`.env.local`):**
+```env
+# API Configuration
+NEXT_PUBLIC_API_URL=http://localhost:4000
+NEXT_PUBLIC_APP_NAME=Instagram Analytics
 
-> As of [N/A], we have migrated from using the unofficial `instagram-private-api` package to the **Official Instagram Graph API**. Users will authenticate via OAuth, and the backend will use long‑lived access tokens to fetch:
->
-> - Followers: `GET /me/followers`
-> - Following: `GET /me/following`
-> - Media metrics: `GET /me/media?fields=like_count`
->
-> See the Backend README for detailed Graph API setup.
+# Optional: Analytics & Monitoring
+NEXT_PUBLIC_GA_ID=your-google-analytics-id
+```
 
-## Contributing
+```bash
+# Start development server
+npm run dev
+# 🚀 Frontend available at http://localhost:3000
+```
 
-1. Fork this organization’s repos.  
-2. Create feature branches.  
-3. Submit pull requests.
+### ⚡ Backend Setup
 
-## License
+```bash
+# Clone the repository
+git clone https://github.com/Instagram-Analysis/instagram-analytics-BE.git
+cd instagram-analytics-BE
 
-This project is licensed under the MIT License.
+# Install dependencies
+npm install
+
+# Configure environment
+cp .env.example .env
+```
+
+**Environment Configuration (`.env`):**
+```env
+# Server Configuration
+PORT=4000
+NODE_ENV=development
+FRONTEND_URL=http://localhost:3000
+
+# Security
+SESSION_SECRET=your-super-secure-session-secret-here
+CORS_ORIGIN=http://localhost:3000
+
+# Instagram Graph API
+INSTAGRAM_APP_ID=your-instagram-app-id
+INSTAGRAM_APP_SECRET=your-instagram-app-secret
+INSTAGRAM_GRAPH_TOKEN=your-long-lived-access-token
+
+# Optional: Database & Caching
+DATABASE_URL=postgresql://username:password@localhost:5432/instagram_analytics
+REDIS_URL=redis://localhost:6379
+```
+
+```bash
+# Start development server
+npm run dev
+# 🚀 Backend API available at http://localhost:4000
+```
+
+## 🔐 Instagram API Integration
+
+### Official Graph API Migration
+
+We've transitioned to Instagram's **Official Graph API** for enhanced security, reliability, and compliance with platform policies.
+
+**Supported Endpoints:**
+- `GET /me/followers` - Retrieve follower list
+- `GET /me/following` - Get following accounts  
+- `GET /me/media` - Fetch media with engagement metrics
+- `GET /me/insights` - Access account analytics
+
+**OAuth 2.0 Flow:**
+1. User initiates login via frontend
+2. Redirect to Instagram OAuth endpoint
+3. Exchange authorization code for access token
+4. Store long-lived token securely
+5. Make authenticated API requests
+
+> 📚 **Detailed Setup Guide**: Refer to the [Backend README](https://github.com/Instagram-Analysis/instagram-analytics-BE#readme) for comprehensive Graph API configuration instructions.
+
+## 🧪 Development
+
+### Running Tests
+```bash
+# Frontend tests
+cd frontend
+npm run dev
+
+# Backend tests  
+cd backend
+npm run dev
+```
+
+
+## 🚀 Deployment
+
+### Production Build
+```bash
+# Frontend
+npm run build
+npm run start
+
+# Backend
+npm run build
+npm run start:prod
+```
+
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Development Workflow
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+### Code Standards
+- Follow TypeScript best practices
+- Maintain test coverage above 80%
+- Use conventional commit messages
+- Update documentation for new features
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+## 🙋‍♂️ Support
+
+- 📖 **Documentation**: Check our [Wiki](https://github.com/Instagram-Analysis/instagram-analytics/wiki)
+- 🐛 **Issues**: Report bugs on [GitHub Issues](https://github.com/Instagram-Analysis/instagram-analytics/issues)
+- 💬 **Discussions**: Join our [GitHub Discussions](https://github.com/Instagram-Analysis/instagram-analytics/discussions)
+
+---
+
+<div align="center">
+
+**by @vxnquish**
+
+[⭐ Star this repo](https://github.com/Instagram-Analysis/instagram-analytics) • [🐛 Report Bug](https://github.com/Instagram-Analysis/instagram-analytics/issues) • [✨ Request Feature](https://github.com/Instagram-Analysis/instagram-analytics/issues)
+
+</div>
