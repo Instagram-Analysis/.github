@@ -186,11 +186,6 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 4. **Push** to the branch (`git push origin feature/amazing-feature`)
 5. **Open** a Pull Request
 
-### Code Standards
-- Follow TypeScript best practices
-- Maintain test coverage above 80%
-- Use conventional commit messages
-- Update documentation for new features
 
 ## 📄 License
 
@@ -198,9 +193,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 🙋‍♂️ Support
 
-- 📖 **Documentation**: Check our [Wiki](https://github.com/Instagram-Analysis/instagram-analytics/wiki)
-- 🐛 **Issues**: Report bugs on [GitHub Issues](https://github.com/Instagram-Analysis/instagram-analytics/issues)
-- 💬 **Discussions**: Join our [GitHub Discussions](https://github.com/Instagram-Analysis/instagram-analytics/discussions)
+- 📖 **Documentation**: Check our [README](https://github.com/Instagram-Analysis/.github/blob/main/profile/README.md)
+- 🐛 **Issues**: Report bugs on [GitHub Issues](https://github.com/Instagram-Analysis/instagram-analytics-BE/issues)
 
 ---
 
@@ -208,6 +202,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **by @vxnquish**
 
-[⭐ Star this repo](https://github.com/Instagram-Analysis/instagram-analytics) • [🐛 Report Bug](https://github.com/Instagram-Analysis/instagram-analytics/issues) • [✨ Request Feature](https://github.com/Instagram-Analysis/instagram-analytics/issues)
+[⭐ Star this repo](https://github.com/Instagram-Analysis) • [🐛 Report Bug](https://github.com/Instagram-Analysis/instagram-analytics-BE/issues) • [✨ Request Feature](https://github.com/Instagram-Analysis/instagram-analytics/issues](https://github.com/Instagram-Analysis/instagram-analytics-FE/issues))
 
 </div>
