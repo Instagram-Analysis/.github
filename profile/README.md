@@ -28,9 +28,9 @@ graph TD
     C -->|JSON Response| B
     B -->|Processed Data| A
     
-    style A fill:#ff5733
-    style B fill:#d6ff33
-    style C fill:#33f2ff
+    style A fill:#ff5733,color:#000000
+    style B fill:#d6ff33,color:#000000
+    style C fill:#33f2ff,color:#000000
 ```
 
 **Technology Stack:**
