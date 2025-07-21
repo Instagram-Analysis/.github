@@ -3,6 +3,9 @@
 > **Status:** 🚧 Initial web‐service approach scrapped.  
 > 🎯 Next up: Chrome-extension-based implementation in a fresh repo.
 
+**Working Repository**: [vxnquish/Unfollowers](https://github.com/vxnquish/Unfollowers)
+
+
 ---
 
 ## Background
