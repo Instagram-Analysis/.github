@@ -59,5 +59,3 @@ This service was supposed to fetch data directly from Instagram’s APIs and pre
 3. **Iterate & Maintain**: keep an eye on Instagram’s front-end changes and update GraphQL query hashes as needed.
 
 ---
-
-Thank you for following along. The new Chrome-extension repo will be ready shortly! 🚀
